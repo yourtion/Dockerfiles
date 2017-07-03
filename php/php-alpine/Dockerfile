@@ -1,7 +1,6 @@
 FROM php:alpine
 
-RUN apk update && \
-    apk add autoconf build-base freetype libpng libjpeg-turbo freetype-dev libpng-dev libjpeg-turbo-dev libmcrypt-dev && \
+RUN apk --no-cache add autoconf build-base freetype libpng libjpeg-turbo freetype-dev libpng-dev libjpeg-turbo-dev libmcrypt-dev && \
     docker-php-ext-configure gd \
       --with-gd \
       --with-freetype-dir=/usr/include/ \
@@ -11,8 +10,6 @@ RUN apk update && \
     docker-php-ext-install -j${NPROC} iconv mcrypt gd mysqli pdo pdo_mysql && \
     pecl install -o -f redis && \
     docker-php-ext-enable redis && \
-    apk del autoconf build-base && \
-    rm -rf /var/cache/apk/* /
+    apk del autoconf build-base
 
-WORKDIR /app
 ENTRYPOINT ["php"]
