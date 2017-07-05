@@ -9,3 +9,9 @@ PHP alpine with php-ext
 - pdo 
 - pdo_mysql
 - redis
+
+## Download
+
+```
+docker pull yourtion/php-alpine
+```
