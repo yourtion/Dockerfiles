@@ -1,7 +1,7 @@
 FROM alpine:3.6
 MAINTAINER  Yourtion Guo <yourtion@gmail.com>
 
-ADD ./user-config.json /user-config.json
+ADD ./tools/shadowsocksr/user-config.json /user-config.json
 WORKDIR /shadowsocksr-manyuser/shadowsocks
 EXPOSE 8080-8089
 
