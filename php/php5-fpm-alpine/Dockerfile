@@ -7,7 +7,7 @@ RUN apk --no-cache add autoconf build-base freetype libpng libjpeg-turbo freetyp
       --with-png-dir=/usr/include/ \
       --with-jpeg-dir=/usr/include/ && \
     NPROC=$(grep -c ^processor /proc/cpuinfo 2>/dev/null || 1) && \
-    docker-php-ext-install -j${NPROC} iconv mcrypt gd mysqli pdo pdo_mysql && \
+    docker-php-ext-install -j${NPROC} iconv mcrypt gd mysql mysqli pdo pdo_mysql && \
     pecl install -o -f redis && \
     docker-php-ext-enable redis && \
     apk del autoconf build-base
