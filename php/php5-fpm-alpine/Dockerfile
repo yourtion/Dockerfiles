@@ -1,4 +1,4 @@
-FROM php5:fpm-alpine
+FROM php:5-fpm-alpine
 
 RUN apk --no-cache add autoconf build-base freetype libpng libjpeg-turbo freetype-dev libpng-dev libjpeg-turbo-dev libmcrypt-dev && \
     docker-php-ext-configure gd \
