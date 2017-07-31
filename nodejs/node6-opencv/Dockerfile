@@ -50,9 +50,10 @@ RUN apk update \
     -D BUILD_TESTS=OFF .. \
   && make -j2 \
   && make install \
-  && cd / \
-  && rm -rf /tmp/opencv-$OPENCV_VERSION* \
-  && apk del .build-deps1 libtbb-dev@edge-testing
+  && cd /tmp \
+  && rm -rf /tmp/opencv-* \
+  && apk del .build-deps1 \
+  && apk del libtbb-dev
 
 ENV NODE_VERSION 6.11.1
 
