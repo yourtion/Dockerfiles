@@ -95,9 +95,9 @@ RUN addgroup -g 1000 node \
     && make -j$(getconf _NPROCESSORS_ONLN) \
     && make install \
     && cd .. \
-    && curl -SLO "https://nodejs.org/dist/v$NODE_VERSION/node-v${NODE_VERSION}-headers.tar.xz" \
     && mkdir /root/.node-gyp \
-    && tar --strip-component 1 -xzf node-v${NODE_VERSION}-heraders.tar.xz /root/.node-gyp/$NODE_VERSION \
+    && curl -SLO "https://nodejs.org/dist/v$NODE_VERSION/node-v${NODE_VERSION}-headers.tar.xz" \
+    && tar -xzf node-v${NODE_VERSION}-headers.tar.xz /root/.node-gyp/$NODE_VERSION \
     && apk del .build-deps2 \
     && rm -rf node-v${NODE_VERSION}-headers.tar.xz \
     && rm -Rf "node-v$NODE_VERSION" \
