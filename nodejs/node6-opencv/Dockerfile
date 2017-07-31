@@ -95,12 +95,12 @@ RUN addgroup -g 1000 node \
     && make -j$(getconf _NPROCESSORS_ONLN) \
     && make install \
     && cd .. \
+    && rm -Rf "node-v$NODE_VERSION" \
+    && rm "node-v$NODE_VERSION.tar.xz" SHASUMS256.txt.asc SHASUMS256.txt \
     && mkdir /root/.node-gyp \
     && curl -SLO "https://nodejs.org/dist/v$NODE_VERSION/node-v${NODE_VERSION}-headers.tar.xz" \
     && tar -xzf node-v${NODE_VERSION}-headers.tar.xz /root/.node-gyp/$NODE_VERSION \
     && apk del .build-deps2 \
-    && rm -rf node-v${NODE_VERSION}-headers.tar.xz \
-    && rm -Rf "node-v$NODE_VERSION" \
-    && rm "node-v$NODE_VERSION.tar.xz" SHASUMS256.txt.asc SHASUMS256.txt
+    && rm -rf node-v${NODE_VERSION}-headers.tar.xz
 
 RUN npm install -g node-gyp
