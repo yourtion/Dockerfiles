@@ -99,4 +99,4 @@ RUN addgroup -g 1000 node \
     && rm "node-v$NODE_VERSION.tar.xz" SHASUMS256.txt.asc SHASUMS256.txt \
     && apk del .build-deps2
 
-RUN npm install -g node-gyp
+RUN npm install -g node-gyp && node-gyp install
