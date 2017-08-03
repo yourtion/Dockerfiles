@@ -55,7 +55,7 @@ RUN apk update \
   && apk del .build-deps1 \
   && apk del libtbb-dev
 
-ENV NODE_VERSION 6.11.1
+ENV NODE_VERSION 6.11.2
 
 RUN addgroup -g 1000 node \
     && adduser -u 1000 -G node -s /bin/sh -D node \
