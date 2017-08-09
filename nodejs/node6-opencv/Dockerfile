@@ -3,7 +3,7 @@ FROM alpine:3.5
 RUN echo "@edge-testing http://dl-cdn.alpinelinux.org/alpine/edge/testing" >> /etc/apk/repositories && \
     echo "@edge-community http://dl-cdn.alpinelinux.org/alpine/edge/community" >> /etc/apk/repositories
 
-ENV OPENCV_VERSION 3.2.0
+ENV OPENCV_VERSION 3.3.0
 
 RUN apk update \
   && apk upgrade \

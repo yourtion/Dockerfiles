@@ -5,7 +5,7 @@ FROM node:6-alpine
 RUN echo "@edge-testing http://dl-cdn.alpinelinux.org/alpine/edge/testing" >> /etc/apk/repositories && \
     echo "@edge-community http://dl-cdn.alpinelinux.org/alpine/edge/community" >> /etc/apk/repositories
 
-ENV OPENCV_VERSION 3.2.0
+ENV OPENCV_VERSION 3.3.0
 
 #3 update apk, install dependencies, build opencv, cleanup
 RUN apk update \
